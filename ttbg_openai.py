@@ -11,7 +11,7 @@ load_dotenv()
 # ==========================================
 NOTION_TOKEN = os.environ.get("NOTION_TOKEN_ttb")
 DATABASE_ID = os.environ.get("DATABASE_ID_ttb")
-OPENAI_API_KEY = os.environ.get("GEMINI_API_KEY")
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
 
 # 노션 헤더 설정
 headers = {
@@ -37,7 +37,7 @@ def get_unclassified_bookmarks():
                 "equals": "북마크"
             }
         },
-        "page_size": 10  # 🌟 테스트로 10개만 먼저! 성공하면 이 숫자를 지우거나 100으로 늘리세요.
+        "page_size": 100 # 노션의 최대치입니다!
     }
     
     response = requests.post(url, json=payload, headers=headers)
